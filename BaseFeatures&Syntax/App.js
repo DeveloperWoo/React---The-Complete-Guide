@@ -30,7 +30,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I am Hyunju</h1>
         <p>This is really working</p>
-        <button onClick={this.switchNameHandler.bind(this, 'Hyunju Woo')}>Switch Name</button>
+        <button onClick={() => this.switchNameHandler('Hyunju Woo')}>Switch Name</button> 
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}/>
