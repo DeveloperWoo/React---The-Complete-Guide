@@ -9,7 +9,8 @@ class App extends Component {
       {name: 'Hyunju', age: 25},
       {name: 'Angela', age: 24}
     ],
-    otherState: 'some other value'
+    otherState: 'some other value',
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
@@ -35,6 +36,11 @@ class App extends Component {
     })
   }
 
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -46,22 +52,28 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Hi, I am Hyunju</h1>
+        <h1>Hi, I am Hyunju's first React App :)</h1>
         <p>This is really working</p>
         <button 
           style={style}
-          onClick={() => this.switchNameHandler('Hyunju Woo')}>Switch Name</button> 
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}/>
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Hyunju Woo!!')}
-          changed={this.nameChangedHandler}> My hobbie is Reading books</Person>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}/>
+          onClick={this.togglePersonsHandler}>Toggle persons</button> 
+          {
+            this.state.showPersons ?
+              <div>
+                <Person 
+                  name={this.state.persons[0].name} 
+                  age={this.state.persons[0].age}/>
+                <Person 
+                  name={this.state.persons[1].name} 
+                  age={this.state.persons[1].age}
+                  click={this.switchNameHandler.bind(this, 'Hyunju Woo!!')}
+                  changed={this.nameChangedHandler}> My hobbie is Reading books</Person>
+                <Person 
+                  name={this.state.persons[2].name} 
+                  age={this.state.persons[2].age}/>
+              </div> : null
+          }
+        
       </div>
     );
     //return(React.createElement('div', {className='App'}, React.createElement('h1', null, 'Hi, I am Hyunju')));
@@ -69,3 +81,4 @@ class App extends Component {
 }
 
 export default App;
+
