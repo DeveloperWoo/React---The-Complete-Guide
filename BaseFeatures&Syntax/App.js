@@ -32,7 +32,7 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
-  deletePErsonHandler = (personIndex) => {
+  deletePersonHandler = (personIndex) => {
     //const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
@@ -46,7 +46,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -60,7 +61,7 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return <Person 
-              click = {() => this.deletePErsonHandler(index)}
+              click = {() => this.deletePersonHandler(index)}
               name = {person.name} 
               age = {person.age}
               key = {person.id}
@@ -68,6 +69,7 @@ class App extends Component {
           })}
         </div>
       );
+      style.backgroundColor = 'red';
     }
 
     return (
