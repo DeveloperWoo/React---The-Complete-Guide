@@ -101,7 +101,6 @@ class App extends Component {
         </div>
       </StyleRoot>
     );
-    //return(React.createElement('div', {className='App'}, React.createElement('h1', null, 'Hi, I am Hyunju')));
   }
 }
 
