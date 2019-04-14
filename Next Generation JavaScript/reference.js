@@ -13,8 +13,6 @@ console.log(firstPerson); //name: "Hyunju"
 const secondPerson = person;
 person.name = 'Woo';
 console.log(secondPerson); //name: "Woo"
-
-
 console.log(firstPerson); //name: "Hyunju"
 
 
